@@ -1,4 +1,4 @@
-package com.jovita.mynews
+package com.jovita.mynews.models
 
 import com.fasterxml.jackson.annotation.JsonProperty
 

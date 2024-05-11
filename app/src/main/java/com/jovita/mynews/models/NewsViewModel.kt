@@ -1,11 +1,11 @@
-package com.jovita.mynews
+package com.jovita.mynews.models
 
 import androidx.lifecycle.ViewModel
+import com.jovita.mynews.network.ApiServices
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import java.lang.Exception
 
 class NewsViewModel: ViewModel() {
 

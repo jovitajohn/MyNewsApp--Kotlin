@@ -1,5 +1,6 @@
-package com.jovita.mynews
+package com.jovita.mynews.network
 
+import com.jovita.mynews.models.News
 import retrofit2.Response
 import retrofit2.http.GET
 

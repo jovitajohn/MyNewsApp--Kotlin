@@ -38,6 +38,10 @@ android {
 
 dependencies {
 
+    implementation("androidx.recyclerview:recyclerview:1.3.2")
+    // For control over item selection of both touch and mouse driven selection
+    implementation("androidx.recyclerview:recyclerview-selection:1.1.0")
+
     // retrofit
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     // GSON

@@ -2,17 +2,16 @@ package com.jovita.mynews
 
 import android.os.Bundle
 import android.widget.TextView
-import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
-import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.jovita.mynews.adapter.NewsAdapter
+import com.jovita.mynews.models.NewsViewModel
+import com.jovita.mynews.models.Result
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.Job
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
@@ -45,5 +44,15 @@ class MainActivity : AppCompatActivity() {
 
     fun loadUi(newsList : List<Result>){
         view.setText("count " + newsList.size)
+
+        val dataset = arrayOf("January", "February", "March")
+        val customAdapter = NewsAdapter(dataset)
+
+        val recyclerView: RecyclerView = findViewById(R.id.news_list)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        recyclerView.adapter = customAdapter
+        customAdapter.notifyDataSetChanged()
+
+
     }
 }
