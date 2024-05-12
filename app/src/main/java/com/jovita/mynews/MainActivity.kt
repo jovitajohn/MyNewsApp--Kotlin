@@ -43,10 +43,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun loadUi(newsList : List<Result>){
-        view.setText("count " + newsList.size)
+        view.setText("Your News  " + newsList.size)
 
         val dataset = arrayOf("January", "February", "March")
-        val customAdapter = NewsAdapter(dataset)
+        val customAdapter = NewsAdapter(newsList,this)
 
         val recyclerView: RecyclerView = findViewById(R.id.news_list)
         recyclerView.layoutManager = LinearLayoutManager(this)
