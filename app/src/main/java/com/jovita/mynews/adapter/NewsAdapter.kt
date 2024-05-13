@@ -9,9 +9,11 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.github.marlonlom.utilities.timeago.TimeAgo
 import com.jovita.mynews.R
 import com.jovita.mynews.models.Result
 import com.squareup.picasso.Picasso
+import java.text.SimpleDateFormat
 
 class NewsAdapter(private val dataSet: List<Result>,private val appContext: Context) :
     RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
@@ -33,14 +35,19 @@ class NewsAdapter(private val dataSet: List<Result>,private val appContext: Cont
 
 
         // sets the text to the textview from our itemHolder class
-        holder.title.text = news.title
-        holder.creator.text = news.creator?.get(0) ?: ""
-        holder.time.text = news.pubDate
+        holder.title.text = if (news.title != null) news.title else "No Data"
+        holder.creator.text = if(news.creator!=null) news.creator?.get(0) ?: "" else "Title"
+        holder.time.text = getTimeAgo(news.pubDate)
 
-        if(news.imageUrl!=null )
-                Picasso.get().load(news.imageUrl).into(holder.img)
-       // Picasso.get().load("https://picsum.photos/200").into(holder.img)
-       //sample url "https://picsum.photos/200"
+
+
+        if(news.imageUrl!=null ) {
+            Picasso.get().load(news.imageUrl).into(holder.img)
+        }else {
+             Picasso.get().load("https://picsum.photos/200").into(holder.img)
+            //sample url "https://picsum.photos/200"
+        }
+
 
     }
 
@@ -56,5 +63,12 @@ class NewsAdapter(private val dataSet: List<Result>,private val appContext: Cont
         val creator : TextView = itemView.findViewById(R.id.txt_creator)
         val time : TextView = itemView.findViewById(R.id.txt_time)
         val img : ImageView = itemView.findViewById(R.id.img_icon)
+    }
+
+    fun getTimeAgo(time : String): String{
+        val dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
+        val startTimeInMillis = dateFormat.parse(time).time
+        Log.i("publish time", "before : "+time + " now : "+TimeAgo.using(startTimeInMillis))
+        return TimeAgo.using(startTimeInMillis)
     }
 }

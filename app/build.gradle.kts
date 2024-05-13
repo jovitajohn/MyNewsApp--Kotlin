@@ -38,6 +38,8 @@ android {
 
 dependencies {
 
+    // time ago
+    implementation ("com.github.marlonlom:timeago:4.0.3")
     // image loading from url
     implementation ("com.squareup.picasso:picasso:2.8")
     implementation("com.squareup.okhttp3:okhttp:4.12.0")
