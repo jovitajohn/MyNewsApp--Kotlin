@@ -1,6 +1,7 @@
 package com.jovita.mynews.models
 
 import com.fasterxml.jackson.annotation.JsonProperty
+import java.io.Serializable
 
 data class Result(val title: String,
                   val link: String,
@@ -19,4 +20,4 @@ data class Result(val title: String,
                   val sourceId: String,
                   val country: List<String>,
                   val category: List<String>,
-                  val language: String)
+                  val language: String):Serializable

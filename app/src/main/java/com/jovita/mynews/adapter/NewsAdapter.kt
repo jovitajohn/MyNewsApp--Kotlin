@@ -2,6 +2,7 @@ package com.jovita.mynews.adapter
 
 import android.app.Activity
 import android.content.Context
+import android.content.Intent
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.github.marlonlom.utilities.timeago.TimeAgo
+import com.jovita.mynews.DetailActivity
 import com.jovita.mynews.R
 import com.jovita.mynews.models.Result
 import com.squareup.picasso.Picasso
@@ -48,6 +50,11 @@ class NewsAdapter(private val dataSet: List<Result>,private val appContext: Cont
             //sample url "https://picsum.photos/200"
         }
 
+        holder.itemView.setOnClickListener { view ->
+            val intent = Intent(appContext, DetailActivity::class.java)
+            intent.putExtra("news", news)
+            appContext.startActivity(intent)
+        }
 
     }
 
@@ -63,6 +70,7 @@ class NewsAdapter(private val dataSet: List<Result>,private val appContext: Cont
         val creator : TextView = itemView.findViewById(R.id.txt_creator)
         val time : TextView = itemView.findViewById(R.id.txt_time)
         val img : ImageView = itemView.findViewById(R.id.img_icon)
+
     }
 
     fun getTimeAgo(time : String): String{
