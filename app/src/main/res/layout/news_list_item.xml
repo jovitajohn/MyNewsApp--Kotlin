@@ -7,7 +7,7 @@
     android:gravity="center_vertical">
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="130dp"
+        android:layout_height="140dp"
         android:layout_marginTop="10dp"
         >
 
@@ -15,6 +15,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="3"
+        android:layout_marginBottom="10dp"
         >
         <ImageView
             android:layout_width="match_parent"
@@ -33,6 +34,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="2"
+        android:layout_marginBottom="10dp"
         android:orientation="vertical"
         android:paddingLeft="10dp"
         >
@@ -67,7 +69,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="4dp"
             android:text="@string/time"
-            android:textColor="@android:color/holo_blue_dark"
+            android:textColor="@color/app_color"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -86,6 +88,7 @@
                 android:layout_height="wrap_content"
                 android:background="@android:color/transparent"
                 android:scaleType="fitCenter"
+                app:tint="@color/app_color2"
                 android:src="@mipmap/ic_more" />
 
         </LinearLayout>
@@ -95,7 +98,6 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
-        android:layout_marginTop="10dp"
-        android:background="@android:color/darker_gray"/>
+        android:background="@color/app_color"/>
 
 </LinearLayout>

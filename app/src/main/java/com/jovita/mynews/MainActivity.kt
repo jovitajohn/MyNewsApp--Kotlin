@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun loadUi(newsList : List<Result>){
-        view.setText("Your News  " + newsList.size)
+      //  view.setText("Your News  " + newsList.size)
 
         val dataset = arrayOf("January", "February", "March")
         val customAdapter = NewsAdapter(newsList,this)
